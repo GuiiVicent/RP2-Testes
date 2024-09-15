@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f552593-2890-4a6c-8036-fff2f74ecf32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CT01Login.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CT02Login.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CT01Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CT02Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TesteDoGPT.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,19 +29,38 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GuiiVicent&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/GuiiVicent/RP2-Testes.git&quot;,
+    &quot;accountId&quot;: &quot;c57044af-f137-46f0-86c0-aea7c4d5f265&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2m4WHmxmtSKVhb1lLzV65fovXWT" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.TesteLogin.executor": "Run",
+    "JUnit.CT01Login.executor": "Run",
+    "JUnit.CT02Login.executor": "Run",
+    "JUnit.TestResponder.executor": "Run",
     "JUnit.TesteDoGPT.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/guilh/OneDrive/Documentos/GitHub/projeto-solarsys-main",
@@ -49,6 +70,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/guilh/OneDrive/Documentos/GitHub/RP2-Testes/src/main/java/org/example/Main.java",
+    "settings.editor.selected.configurable": "Errors",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -69,7 +91,9 @@
       <option name="presentableId" value="Default" />
       <updated>1726336246016</updated>
       <workItem from="1726336247055" duration="38000" />
-      <workItem from="1726336333287" duration="739000" />
+      <workItem from="1726336333287" duration="2459000" />
+      <workItem from="1726374958042" duration="106000" />
+      <workItem from="1726403240917" duration="11635000" />
     </task>
     <servers />
   </component>
