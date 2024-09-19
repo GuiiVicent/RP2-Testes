@@ -6,9 +6,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,21 +35,8 @@ public class CTXXClonarQuestionario {
 
     @BeforeEach
     public void setUp() {
-        try {
-            // Lê o arquivo JSON usando um BufferedReader
-            buffer = new BufferedReader(new FileReader("src/main/resources/CT01LoginDadosCorretos.json"));
-            json = new StringBuilder();
-            while ((linha = buffer.readLine()) != null) {
-                json.append(linha);
-            }
-            buffer.close();
-
-            // Converte o conteúdo do arquivo JSON em um objeto JsonObject
-            parser = new JsonParser();
-            jsonObject = parser.parse(json.toString()).getAsJsonObject();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // metodo try
+        lerArquivoJson("CT01LoginDadosCorretos.json");
 
         // Define as opções do Chrome
         options = new ChromeOptions();
@@ -92,9 +82,57 @@ public class CTXXClonarQuestionario {
         // Clica na aba de Questionário
         navegador.findElement(By.xpath("//*[@id=\"side-menu\"]/li[5]/a/i")).click();
 
-        // Clica na opção de ID
-        navegador.findElement(By.xpath("tdatagrid_col sorting_disabled")).click();
+        // metodo try
+        lerArquivoJson("CTXXClonarQuestionario.json");
+        String tituloQuestionario = jsonObject.get("tituloQuestionario").getAsString();
 
+        // Espera até o campo título aparecer
+        espera.until(d -> navegador.findElement(By.name("titulo")));
 
+        // Preenche o campo de titulo com o titulo do questionario desejado
+        navegador.findElement(By.name("titulo")).sendKeys(tituloQuestionario);
+
+        // Declara um objeto de actions
+        Actions actions = new Actions(navegador);
+
+        // Pressiona Enter para pesquisar o questionário desejado
+        actions.sendKeys(Keys.ENTER).perform();
+
+        // Espera um tempo determinado pra depois verificar
+        Thread.sleep(timeSleep);
+
+        // Clica no botão actions
+        navegador.findElement(By.xpath("//*[@id=\"olá_mundo\"]/tbody/tr[1]/td[4]/div/button")).click();
+
+        // Espera um tempo determinado pra depois verificar
+        Thread.sleep(timeSleep);
+
+        // Clica no botão de clonar
+        navegador.findElement(By.xpath("//*[@id=\"olá_mundo\"]/tbody/tr[1]/td[4]/div/ul/li[4]/a")).click();
+
+        // Espera um tempo determinado pra depois verificar
+        Thread.sleep(timeSleep);
+
+        // Verificando se chegou no modal title certo
+        WebElement mensagemErro = navegador.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/span[2]"));
+        Assertions.assertEquals("Registro salvo", mensagemErro.getText());
+    }
+
+    // metodo Try para ler o arquivo .json com um BufferedReader
+    public void lerArquivoJson(String jsonArquivo){
+        try {
+            buffer = new BufferedReader(new FileReader("src/main/resources/" + jsonArquivo));
+            json = new StringBuilder();
+            while ((linha = buffer.readLine()) != null) {
+                json.append(linha);
+            }
+            buffer.close();
+
+            // Converte o conteúdo do arquivo JSON em um objeto JsonObject
+            parser = new JsonParser();
+            jsonObject = parser.parse(json.toString()).getAsJsonObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

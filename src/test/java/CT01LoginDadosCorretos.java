@@ -31,21 +31,8 @@ public class CT01LoginDadosCorretos {
 
     @BeforeEach
     public void setUp() {
-        try {
-            // Lê o arquivo JSON usando um BufferedReader
-            buffer = new BufferedReader(new FileReader("src/main/resources/CT01LoginDadosCorretos.json"));
-            json = new StringBuilder();
-            while ((linha = buffer.readLine()) != null) {
-                json.append(linha);
-            }
-            buffer.close();
-
-            // Converte o conteúdo do arquivo JSON em um objeto JsonObject
-            parser = new JsonParser();
-            jsonObject = parser.parse(json.toString()).getAsJsonObject();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // metodo try
+        lerArquivoJson("CT01LoginDadosCorretos.json");
 
         // Define as opções do Chrome
         options = new ChromeOptions();
@@ -84,5 +71,23 @@ public class CT01LoginDadosCorretos {
 
         // Compara se a url da página é a esperada
         Assertions.assertEquals("http://200.132.136.72/AIQuiz/index.php?class=EmptyPage&previous_class=LoginForm", navegador.getCurrentUrl());
+    }
+
+    // metodo Try para ler o arquivo .json com um BufferedReader
+    public void lerArquivoJson(String jsonArquivo){
+        try {
+            buffer = new BufferedReader(new FileReader("src/main/resources/" + jsonArquivo));
+            json = new StringBuilder();
+            while ((linha = buffer.readLine()) != null) {
+                json.append(linha);
+            }
+            buffer.close();
+
+            // Converte o conteúdo do arquivo JSON em um objeto JsonObject
+            parser = new JsonParser();
+            jsonObject = parser.parse(json.toString()).getAsJsonObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
