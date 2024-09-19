@@ -7,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Wait;
@@ -17,9 +16,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Scanner;
 
-public class CT02Login {
+import static java.lang.Thread.sleep;
+
+public class CT01LoginDadosCorretos {
     BufferedReader buffer;
     StringBuilder json;
     String linha;
@@ -33,7 +33,7 @@ public class CT02Login {
     public void setUp() {
         try {
             // Lê o arquivo JSON usando um BufferedReader
-            buffer = new BufferedReader(new FileReader("src/main/resources/CT02Login.json"));
+            buffer = new BufferedReader(new FileReader("src/main/resources/CT01LoginDadosCorretos.json"));
             json = new StringBuilder();
             while ((linha = buffer.readLine()) != null) {
                 json.append(linha);
@@ -59,8 +59,8 @@ public class CT02Login {
     }
 
     @Test
-    @DisplayName("CT02 - Login Usuário Inválido")
-    public void CT02() {
+    @DisplayName("CT01 - Login Usuário Válido")
+    public void CT01() throws InterruptedException {
         // Obtendo os dados do arquivo JSON
         String urlPlataforma = jsonObject.get("url").getAsString();
         String usuario = jsonObject.get("usuario").getAsString();
@@ -79,13 +79,10 @@ public class CT02Login {
         // Clica no botão de login
         navegador.findElement(By.name("btn_entrar")).click();
 
-        // Espera até pop up aparecer
-        espera.until(d -> navegador.findElement(By.className("modal-title")));
+        //Espera 2 segundos para verificar
+        Thread.sleep(2000);
 
-        // Acha a mensagem de erro e coloca dentro de uma variável
-        WebElement mensagemErro = navegador.findElement(By.className("modal-title"));
-
-        // Verifica se a mensagem de erro recebida é a esperada
-        Assertions.assertEquals("Erro", mensagemErro.getText());
+        // Compara se a url da página é a esperada
+        Assertions.assertEquals("http://200.132.136.72/AIQuiz/index.php?class=EmptyPage&previous_class=LoginForm", navegador.getCurrentUrl());
     }
 }

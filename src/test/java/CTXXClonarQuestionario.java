@@ -16,11 +16,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Scanner;
 
 import static java.lang.Thread.sleep;
 
-public class CT01Login {
+public class CTXXClonarQuestionario {
     BufferedReader buffer;
     StringBuilder json;
     String linha;
@@ -29,12 +28,13 @@ public class CT01Login {
     ChromeOptions options;
     static WebDriver navegador;
     static Wait<WebDriver> espera;
+    int timeSleep = 2000;
 
     @BeforeEach
     public void setUp() {
         try {
             // Lê o arquivo JSON usando um BufferedReader
-            buffer = new BufferedReader(new FileReader("src/main/resources/CT01Login.json"));
+            buffer = new BufferedReader(new FileReader("src/main/resources/CT01LoginDadosCorretos.json"));
             json = new StringBuilder();
             while ((linha = buffer.readLine()) != null) {
                 json.append(linha);
@@ -80,10 +80,21 @@ public class CT01Login {
         // Clica no botão de login
         navegador.findElement(By.name("btn_entrar")).click();
 
-        //Espera 2 segundos para verificar
-        Thread.sleep(2000);
+        // Espera um tempo determinado pra depois verificar
+        Thread.sleep(timeSleep);
 
         // Compara se a url da página é a esperada
         Assertions.assertEquals("http://200.132.136.72/AIQuiz/index.php?class=EmptyPage&previous_class=LoginForm", navegador.getCurrentUrl());
+
+        // Espera um tempo determinado pra depois verificar
+        Thread.sleep(timeSleep);
+
+        // Clica na aba de Questionário
+        navegador.findElement(By.xpath("//*[@id=\"side-menu\"]/li[5]/a/i")).click();
+
+        // Clica na opção de ID
+        navegador.findElement(By.xpath("tdatagrid_col sorting_disabled")).click();
+
+
     }
 }
