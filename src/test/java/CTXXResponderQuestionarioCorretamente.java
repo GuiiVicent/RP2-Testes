@@ -81,7 +81,7 @@ public class CTXXResponderQuestionarioCorretamente {
         sleep(timeSleep);
 
         // Clica no questionário
-        espera.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[td[contains(text(), 'Questionário Guilherme Teste de Responder')]]" +
+        espera.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[td[contains(text(), 'Questionário Teste Guilherme 2')]]" +
                 "//i[contains(@class, 'fa-list') and contains(@class, 'green')]"))).click();
 
         // Espera um tempo determinado pra depois verificar
@@ -120,8 +120,15 @@ public class CTXXResponderQuestionarioCorretamente {
             }
 
         }
-        System.out.println("Todas perguntas foram respondidas");
+        // Clica na opção de confirmar
+        navegador.findElement(By.xpath("//*[@id=\"tbutton_btn_confirma\"]")).click();
 
+        // Espera um tempo determinado pra depois verificar
+        Thread.sleep(timeSleep);
+
+        // Verificando se chegou no modal title certo
+        WebElement mensagemErro = navegador.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/span[2]"));
+        Assertions.assertEquals("Você acertou 100%", mensagemErro.getText());
     }
 
     // metodo Try para ler o arquivo .json com um BufferedReader
