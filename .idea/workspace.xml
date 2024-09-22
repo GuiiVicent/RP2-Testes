@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="6f552593-2890-4a6c-8036-fff2f74ecf32" name="Changes" comment="" />
-=======
     <list default="true" id="6f552593-2890-4a6c-8036-fff2f74ecf32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/CTXXClonarQuestionario.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CTXXAlternativasCorretas.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CTXXAlternativasCorretas.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CTXXAlternativasIncorretas.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CTXXAlternativasIncorretas.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CT01LoginDadosCorretos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CT01LoginDadosCorretos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CTXXClonarQuestionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTXXClonarQuestionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioCorretamente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioCorretamente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioIncorretamente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioIncorretamente.java" afterDir="false" />
     </list>
->>>>>>> bd431d9aef669aea38978012eff5d2fbf485abe3
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,40 +46,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.TesteLogin.executor": "Run",
-    "JUnit.CT01Login.executor": "Run",
-    "JUnit.CT01LoginDadosCorretos.executor": "Run",
-    "JUnit.CT02Login.executor": "Run",
-    "JUnit.CT07ResponderQuestionario.executor": "Run",
-    "JUnit.CTXXClonarQuestionario.executor": "Run",
-    "JUnit.CTXXResponderQuestionarioCorretamente.executor": "Run",
-    "JUnit.TestResponder.executor": "Run",
-    "JUnit.TesteDoGPT.executor": "Run",
-    "JUnit.teste.executor": "Run",
-    "JUnit.teste2.executor": "Run",
-    "JUnit.testestes.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/guilh/OneDrive/Documentos/GitHub/RP2-Testes",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/guilh/OneDrive/Documentos/GitHub/RP2-Testes/src/main/java/org/example/Main.java",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TesteLogin.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CT01Login.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CT01LoginDadosCorretos.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CT02Login.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CT07ResponderQuestionario.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CTXXClonarQuestionario.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestResponder.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TesteDoGPT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.teste.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.teste2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.testestes.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/guilh/OneDrive/Documentos/GitHub/RP2-Testes&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/guilh/OneDrive/Documentos/GitHub/RP2-Testes/src/main/java/org/example/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
       </set>
     </attachedChunks>
   </component>
@@ -114,15 +104,10 @@
       <workItem from="1726749667262" duration="64000" />
       <workItem from="1726750222286" duration="10171000" />
       <workItem from="1726761392502" duration="9000" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <workItem from="1726774810356" duration="71000" />
-=======
-      <workItem from="1726781641782" duration="3919000" />
->>>>>>> bd431d9aef669aea38978012eff5d2fbf485abe3
-=======
-      <workItem from="1726781641782" duration="3919000" />
->>>>>>> bd431d9aef669aea38978012eff5d2fbf485abe3
+      <workItem from="1726761489406" duration="1278000" />
+      <workItem from="1726787552226" duration="51000" />
+      <workItem from="1726788245610" duration="627000" />
+      <workItem from="1726803997349" duration="973000" />
     </task>
     <servers />
   </component>
