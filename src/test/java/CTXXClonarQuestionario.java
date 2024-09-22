@@ -50,8 +50,8 @@ public class CTXXClonarQuestionario {
     }
 
     @Test
-    @DisplayName("CT01 - Login Usuário Válido")
-    public void CT01() throws InterruptedException {
+    @DisplayName("CTXX - Clonar Questionário")
+    public void CTXX() throws InterruptedException {
         // Obtendo os dados do arquivo JSON
         String urlPlataforma = jsonObject.get("url").getAsString();
         String usuario = jsonObject.get("usuario").getAsString();

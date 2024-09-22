@@ -46,7 +46,7 @@ public class CT01LoginDadosCorretos {
     }
 
     @Test
-    @DisplayName("CT01 - Login Usuário Válido")
+    @DisplayName("CTXX - Login Dados Corretos")
     public void CT01() throws InterruptedException {
         // Obtendo os dados do arquivo JSON
         String urlPlataforma = jsonObject.get("url").getAsString();

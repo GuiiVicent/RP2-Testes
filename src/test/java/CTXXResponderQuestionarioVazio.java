@@ -16,11 +16,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.List;
 
 import static java.lang.Thread.sleep;
 
-public class CTXXResponderQuestionarioIncorretamente {
+public class CTXXResponderQuestionarioVazio {
     BufferedReader buffer;
     StringBuilder json;
     String linha;
@@ -48,7 +47,7 @@ public class CTXXResponderQuestionarioIncorretamente {
     }
 
     @Test
-    @DisplayName("CTXX - Responder Questionário Incorretamente")
+    @DisplayName("CTXX - Responder Questionário Vazio")
     public void CTXX() throws InterruptedException {
         // Obtendo os dados do arquivo JSON
         String urlPlataforma = jsonObject.get("url").getAsString();
@@ -87,49 +86,21 @@ public class CTXXResponderQuestionarioIncorretamente {
         // Espera um tempo determinado pra depois verificar
         sleep(timeSleep);
 
-        // metodo try
-        lerArquivoJson("CTXXAlternativasIncorretas.json");
+        // Localiza o botão pelo XPath
+        WebElement botao = navegador.findElement(By.xpath("//*[@id='tbutton_btn_confirma']"));
 
-        for (int i = 0; i < 7; i++) {
-            // Pega a resposta do radio da repetição atual
-            String respostaCorretaDoJson = jsonObject.get("radio" + i).getAsString();
+        // Rola a página até o botão estar visível
+        ((JavascriptExecutor) navegador).executeScript("arguments[0].scrollIntoView(true);", botao);
 
-            // Encontrar todos as alternativas para o radio da repetição atual
-            List<WebElement> alternativas = navegador.findElements(By.xpath("//input[@name='radio" + i + "']"));
-
-            for (WebElement alternativa : alternativas) {
-                ((JavascriptExecutor) navegador).executeScript("arguments[0].scrollIntoView(true);", alternativa);
-                // Obtêm o 'id' do input
-                String id = alternativa.getAttribute("id");
-
-                // Usa o id para encontrar o label associado
-                WebElement label = navegador.findElement(By.xpath("//label[@for='" + id + "']"));
-
-                // Obtêm o texto da alternativa
-                String textoAlternativa = label.getText();
-
-                // Extrai o primeiro catactere do texto, ou seja, a letra da opção
-                String letraAlternativa = textoAlternativa.substring(0, 1).toLowerCase(); // Lê a primeira letra e converte para minúscula
-
-                // Comparar com a resposta do JSON
-                if (letraAlternativa.equals(respostaCorretaDoJson)) {
-                    alternativa.click();
-                    System.out.println("Pergunta" + (i + 1) + " respondida");
-                    break; // Sai do loop após encontrar e clicar na alternativa correta
-                }
-            }
-
-        }
-        // Clica na opção de confirmar
-        navegador.findElement(By.xpath("//*[@id=\"tbutton_btn_confirma\"]")).click();
+        // Clica no botão
+        botao.click();
 
         // Espera um tempo determinado pra depois verificar
         Thread.sleep(timeSleep);
 
         // Verificando se chegou no modal title certo
-        WebElement mensagemErro = navegador.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/span[2]"));
-        Assertions.assertEquals("Você acertou 0%", mensagemErro.getText());
-
+        WebElement mensagemErro = navegador.findElement(By.xpath("/html/body/div[2]/div/div/div[1]/h4"));
+        Assertions.assertEquals("Erro", mensagemErro.getText());
     }
 
     // metodo Try para ler o arquivo .json com um BufferedReader
