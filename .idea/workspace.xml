@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6f552593-2890-4a6c-8036-fff2f74ecf32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CT01LoginDadosCorretos.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CT01LoginDadosCorretos.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CTXXClonarQuestionario.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CTXXClonarQuestionario.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CT01LoginDadosCorretos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CT01LoginDadosCorretos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CTXXClonarQuestionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTXXClonarQuestionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioCorretamente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioCorretamente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioIncorretamente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioIncorretamente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioVazio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioVazio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +59,7 @@
     "JUnit.CT01LoginDadosCorretos.executor": "Run",
     "JUnit.CT02Login.executor": "Run",
     "JUnit.CT07ResponderQuestionario.executor": "Run",
-    "JUnit.CTXXClonarQuestionario.executor": "Run",
+    "JUnit.CTXXClonarQuestionario.executor": "Debug",
     "JUnit.CTXXResponderQuestionarioCorretamente.executor": "Run",
     "JUnit.CTXXResponderQuestionarioVazio.executor": "Run",
     "JUnit.TestResponder.executor": "Run",
@@ -66,7 +73,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/guilh/OneDrive/Documentos/GitHub/POO/HerançaPolimorfismo",
+    "last_opened_file_path": "C:/Users/guilh/OneDrive/Documentos/GitHub/RP2-Testes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -113,6 +120,8 @@
       <workItem from="1727042253694" duration="1145000" />
       <workItem from="1727102582986" duration="32000" />
       <workItem from="1727286758060" duration="23000" />
+      <workItem from="1727288200943" duration="3123000" />
+      <workItem from="1727291361070" duration="700000" />
     </task>
     <servers />
   </component>

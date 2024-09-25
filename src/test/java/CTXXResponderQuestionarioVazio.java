@@ -53,6 +53,7 @@ public class CTXXResponderQuestionarioVazio {
         String urlPlataforma = jsonObject.get("url").getAsString();
         String usuario = jsonObject.get("usuario").getAsString();
         String senha = jsonObject.get("senha").getAsString();
+        String urlEsperada = jsonObject.get("urlEsperada").getAsString();
 
         // Abrir a plataforma
         navegador.get(urlPlataforma);
@@ -64,14 +65,17 @@ public class CTXXResponderQuestionarioVazio {
         navegador.findElement(By.name("login")).sendKeys(usuario);
         navegador.findElement(By.name("password")).sendKeys(senha);
 
+        // Espera um tempo determinado pra depois verificar
+        Thread.sleep(timeSleep);
+
         // Clica no botão de login
         navegador.findElement(By.name("btn_entrar")).click();
 
         // Espera um tempo determinado pra depois verificar
-        sleep(timeSleep);
+        Thread.sleep(timeSleep);
 
-        // Verificar se a url da página inicial é a esperada
-        Assertions.assertEquals("http://200.132.136.72/AIQuiz/index.php?class=EmptyPage&previous_class=LoginForm", navegador.getCurrentUrl());
+        // Compara se a url da página é a esperada
+        Assertions.assertEquals(urlEsperada, navegador.getCurrentUrl());
 
         // Clica na aba de Responder
         navegador.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/a")).click();

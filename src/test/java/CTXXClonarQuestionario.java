@@ -5,13 +5,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -56,6 +54,7 @@ public class CTXXClonarQuestionario {
         String urlPlataforma = jsonObject.get("url").getAsString();
         String usuario = jsonObject.get("usuario").getAsString();
         String senha = jsonObject.get("senha").getAsString();
+        String urlEsperada = jsonObject.get("urlEsperada").getAsString();
 
         // Abrir a plataforma
         navegador.get(urlPlataforma);
@@ -67,6 +66,9 @@ public class CTXXClonarQuestionario {
         navegador.findElement(By.name("login")).sendKeys(usuario);
         navegador.findElement(By.name("password")).sendKeys(senha);
 
+        // Espera um tempo determinado pra depois verificar
+        Thread.sleep(timeSleep);
+
         // Clica no botão de login
         navegador.findElement(By.name("btn_entrar")).click();
 
@@ -74,48 +76,55 @@ public class CTXXClonarQuestionario {
         Thread.sleep(timeSleep);
 
         // Compara se a url da página é a esperada
-        Assertions.assertEquals("http://200.132.136.72/AIQuiz/index.php?class=EmptyPage&previous_class=LoginForm", navegador.getCurrentUrl());
-
-        // Espera um tempo determinado pra depois verificar
-        Thread.sleep(timeSleep);
+        Assertions.assertEquals(urlEsperada, navegador.getCurrentUrl());
 
         // Clica na aba de Questionário
-        navegador.findElement(By.xpath("//*[@id=\"side-menu\"]/li[5]/a/i")).click();
+        navegador.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/a")).click();
 
         // metodo try
         lerArquivoJson("CTXXClonarQuestionario.json");
         String tituloQuestionario = jsonObject.get("tituloQuestionario").getAsString();
 
-        // Espera até o campo título aparecer
-        espera.until(d -> navegador.findElement(By.name("titulo")));
+        // Espera até o campo de título estar visível na página
+        espera.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Título']")));
 
-        // Preenche o campo de titulo com o titulo do questionario desejado
-        navegador.findElement(By.name("titulo")).sendKeys(tituloQuestionario);
+        // Preenche o campo de título com o texto
+        navegador.findElement(By.xpath("//input[@placeholder='Título']")).sendKeys(tituloQuestionario);
 
-        // Declara um objeto de actions
-        Actions actions = new Actions(navegador);
-
-        // Pressiona Enter para pesquisar o questionário desejado
-        actions.sendKeys(Keys.ENTER).perform();
+        // Clica no botão de pesquisar
+        navegador.findElement(By.xpath("//*[@id=\"tbutton_find\"]")).click();
 
         // Espera um tempo determinado pra depois verificar
         Thread.sleep(timeSleep);
 
-        // Clica no botão actions
-        navegador.findElement(By.xpath("//*[@id=\"olá_mundo\"]/tbody/tr[1]/td[4]/div/button")).click();
+        // Executa o clique usando JavaScript
+        WebElement elemento = navegador.findElement(By.xpath("//th[text()='Título']"));
+        ((JavascriptExecutor) navegador).executeScript("arguments[0].click();", elemento);
 
         // Espera um tempo determinado pra depois verificar
         Thread.sleep(timeSleep);
 
-        // Clica no botão de clonar
-        navegador.findElement(By.xpath("//*[@id=\"olá_mundo\"]/tbody/tr[1]/td[4]/div/ul/li[4]/a")).click();
+        // Espera até o actions ser clicável usando o atributo class
+        espera.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='btn btn-default btn-sm dropdown-toggle']")));
+
+        // Clica no actions
+        navegador.findElement(By.xpath("//button[@class='btn btn-default btn-sm dropdown-toggle']")).click();
+
+        // Espera um tempo determinado pra depois verificar
+        Thread.sleep(timeSleep);
+
+        // Espera até o clonar ser clicável
+        espera.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[span='Clonar']")));
+
+        // Clica no clonar
+        navegador.findElement(By.xpath("//a[span='Clonar']")).click();
 
         // Espera um tempo determinado pra depois verificar
         Thread.sleep(timeSleep);
 
         // Verificando se chegou no modal title certo
-        WebElement mensagemErro = navegador.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/span[2]"));
-        Assertions.assertEquals("Registro salvo", mensagemErro.getText());
+        WebElement mensagemClonar = navegador.findElement(By.xpath("/html/body/div[2]/div/div/div[1]/h4"));
+        Assertions.assertEquals("Informação", mensagemClonar.getText());
     }
 
     // metodo Try para ler o arquivo .json com um BufferedReader

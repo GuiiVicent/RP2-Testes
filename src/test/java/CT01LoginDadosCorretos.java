@@ -28,6 +28,7 @@ public class CT01LoginDadosCorretos {
     ChromeOptions options;
     static WebDriver navegador;
     static Wait<WebDriver> espera;
+    int timeSleep = 2000;
 
     @BeforeEach
     public void setUp() {
@@ -52,6 +53,7 @@ public class CT01LoginDadosCorretos {
         String urlPlataforma = jsonObject.get("url").getAsString();
         String usuario = jsonObject.get("usuario").getAsString();
         String senha = jsonObject.get("senha").getAsString();
+        String urlEsperada = jsonObject.get("urlEsperada").getAsString();
 
         // Abrir a plataforma
         navegador.get(urlPlataforma);
@@ -63,14 +65,17 @@ public class CT01LoginDadosCorretos {
         navegador.findElement(By.name("login")).sendKeys(usuario);
         navegador.findElement(By.name("password")).sendKeys(senha);
 
+        // Espera um tempo determinado pra depois verificar
+        Thread.sleep(timeSleep);
+
         // Clica no botão de login
         navegador.findElement(By.name("btn_entrar")).click();
 
-        //Espera 2 segundos para verificar
-        Thread.sleep(2000);
+        // Espera um tempo determinado pra depois verificar
+        Thread.sleep(timeSleep);
 
         // Compara se a url da página é a esperada
-        Assertions.assertEquals("http://200.132.136.72/AIQuiz/index.php?class=EmptyPage&previous_class=LoginForm", navegador.getCurrentUrl());
+        Assertions.assertEquals(urlEsperada, navegador.getCurrentUrl());
     }
 
     // metodo Try para ler o arquivo .json com um BufferedReader

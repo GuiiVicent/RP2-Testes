@@ -1,7 +1,7 @@
 {
-  "url": "http://200.132.136.72/AIQuiz/index.php?class=EmptyPage",
+  "url": "http://200.132.136.72/AIQuiz2/index.php?class=LoginForm",
   "usuario": "grupo6",
-  "senha": "admin"
-
+  "senha": "A#abc123",
+  "urlEsperada": "http://200.132.136.72/AIQuiz2/index.php?class=DashboardChatGPT"
 
 }
