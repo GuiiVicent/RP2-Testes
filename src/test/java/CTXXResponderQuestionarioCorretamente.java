@@ -34,7 +34,7 @@ public class CTXXResponderQuestionarioCorretamente {
     @BeforeEach
     public void setUp() {
         // metodo try
-        lerArquivoJson("CT01LoginDadosCorretos.json");
+        lerArquivoJson("CTXXLoginGuiiVicent.json");
 
         // Define as opções do Chrome
         options = new ChromeOptions();
@@ -55,6 +55,7 @@ public class CTXXResponderQuestionarioCorretamente {
         String usuario = jsonObject.get("usuario").getAsString();
         String senha = jsonObject.get("senha").getAsString();
         String urlEsperada = jsonObject.get("urlEsperada").getAsString();
+        String tituloQuestionario = jsonObject.get("tituloQuestionario").getAsString();
 
         // Abrir a plataforma
         navegador.get(urlPlataforma);
@@ -79,7 +80,16 @@ public class CTXXResponderQuestionarioCorretamente {
         Assertions.assertEquals(urlEsperada, navegador.getCurrentUrl());
 
         // Clica na aba de Responder
-        navegador.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/a")).click();
+        navegador.findElement(By.xpath("//*[@id=\"side-menu\"]/li[2]/a")).click();
+
+        // Espera até o campo de título estar visível na página
+        espera.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Título']")));
+
+        // Preenche o campo de título com o texto
+        navegador.findElement(By.xpath("//input[@placeholder='Título']")).sendKeys(tituloQuestionario);
+
+        // Clica no botão de pesquisar
+        navegador.findElement(By.xpath("//*[@id=\"tbutton_find\"]")).click();
 
         // Espera um tempo determinado pra depois verificar
         sleep(timeSleep);
@@ -125,7 +135,7 @@ public class CTXXResponderQuestionarioCorretamente {
 
         }
         // Clica na opção de confirmar
-        navegador.findElement(By.xpath("//*[@id=\"tbutton_btn_confirma\"]")).click();
+        navegador.findElement(By.xpath("//*[@id=\"tbutton_btn_confirmar\"]")).click();
 
         // Espera um tempo determinado pra depois verificar
         Thread.sleep(timeSleep);

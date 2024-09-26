@@ -34,7 +34,7 @@ public class CTXXResponderQuestionarioIncorretamente {
     @BeforeEach
     public void setUp() {
         // metodo try
-        lerArquivoJson("CT01LoginDadosCorretos.json");
+        lerArquivoJson("CTXXLoginGuiiVicent.json");
 
         // Define as opções do Chrome
         options = new ChromeOptions();
@@ -48,13 +48,14 @@ public class CTXXResponderQuestionarioIncorretamente {
     }
 
     @Test
-    @DisplayName("CTXX - Responder Questionário Incorretamente")
+    @DisplayName("CTXX - Responder Questionário Corretamente")
     public void CTXX() throws InterruptedException {
         // Obtendo os dados do arquivo JSON
         String urlPlataforma = jsonObject.get("url").getAsString();
         String usuario = jsonObject.get("usuario").getAsString();
         String senha = jsonObject.get("senha").getAsString();
         String urlEsperada = jsonObject.get("urlEsperada").getAsString();
+        String tituloQuestionario = jsonObject.get("tituloQuestionario").getAsString();
 
         // Abrir a plataforma
         navegador.get(urlPlataforma);
@@ -79,13 +80,22 @@ public class CTXXResponderQuestionarioIncorretamente {
         Assertions.assertEquals(urlEsperada, navegador.getCurrentUrl());
 
         // Clica na aba de Responder
-        navegador.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/a")).click();
+        navegador.findElement(By.xpath("//*[@id=\"side-menu\"]/li[2]/a")).click();
+
+        // Espera até o campo de título estar visível na página
+        espera.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Título']")));
+
+        // Preenche o campo de título com o texto
+        navegador.findElement(By.xpath("//input[@placeholder='Título']")).sendKeys(tituloQuestionario);
+
+        // Clica no botão de pesquisar
+        navegador.findElement(By.xpath("//*[@id=\"tbutton_find\"]")).click();
 
         // Espera um tempo determinado pra depois verificar
         sleep(timeSleep);
 
         // Clica no questionário
-        espera.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[td[contains(text(), 'Questionário Teste Guilherme 2')]]" +
+        espera.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[td[contains(text(), 'Questionário Teste Guilherme')]]" +
                 "//i[contains(@class, 'fa-list') and contains(@class, 'green')]"))).click();
 
         // Espera um tempo determinado pra depois verificar
@@ -125,7 +135,7 @@ public class CTXXResponderQuestionarioIncorretamente {
 
         }
         // Clica na opção de confirmar
-        navegador.findElement(By.xpath("//*[@id=\"tbutton_btn_confirma\"]")).click();
+        navegador.findElement(By.xpath("//*[@id=\"tbutton_btn_confirmar\"]")).click();
 
         // Espera um tempo determinado pra depois verificar
         Thread.sleep(timeSleep);
@@ -133,7 +143,6 @@ public class CTXXResponderQuestionarioIncorretamente {
         // Verificando se chegou no modal title certo
         WebElement mensagemErro = navegador.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/span[2]"));
         Assertions.assertEquals("Você acertou 0%", mensagemErro.getText());
-
     }
 
     // metodo Try para ler o arquivo .json com um BufferedReader

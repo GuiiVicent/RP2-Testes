@@ -1,0 +1,9 @@
+{
+  "url": "http://200.132.136.72/AIQuiz2/index.php?class=LoginForm",
+  "usuario": "GuiiVicent",
+  "senha": "Admin5!",
+  "urlEsperada": "http://200.132.136.72/AIQuiz2/index.php?class=DashboardChatGPTAluno",
+  "tituloQuestionario": "Questionário Teste Guilherme"
+
+}
+

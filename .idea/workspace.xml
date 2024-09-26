@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f552593-2890-4a6c-8036-fff2f74ecf32" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CTXXLoginGuiiVicent.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CT01LoginDadosCorretos.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CT01LoginDadosCorretos.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CTXXClonarQuestionario.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CTXXClonarQuestionario.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CT01LoginDadosCorretos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CT01LoginDadosCorretos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CTXXClonarQuestionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTXXClonarQuestionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CTXXAlternativasCorretas.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CTXXAlternativasCorretas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CTXXAlternativasIncorretas.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CTXXAlternativasIncorretas.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioCorretamente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioCorretamente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioIncorretamente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioIncorretamente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioVazio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTXXResponderQuestionarioVazio.java" afterDir="false" />
@@ -59,8 +58,9 @@
     "JUnit.CT01LoginDadosCorretos.executor": "Run",
     "JUnit.CT02Login.executor": "Run",
     "JUnit.CT07ResponderQuestionario.executor": "Run",
-    "JUnit.CTXXClonarQuestionario.executor": "Debug",
+    "JUnit.CTXXClonarQuestionario.executor": "Run",
     "JUnit.CTXXResponderQuestionarioCorretamente.executor": "Run",
+    "JUnit.CTXXResponderQuestionarioIncorretamente.executor": "Run",
     "JUnit.CTXXResponderQuestionarioVazio.executor": "Run",
     "JUnit.TestResponder.executor": "Run",
     "JUnit.TesteDoGPT.executor": "Run",
@@ -121,7 +121,8 @@
       <workItem from="1727102582986" duration="32000" />
       <workItem from="1727286758060" duration="23000" />
       <workItem from="1727288200943" duration="3123000" />
-      <workItem from="1727291361070" duration="700000" />
+      <workItem from="1727291361070" duration="1338000" />
+      <workItem from="1727308812723" duration="1261000" />
     </task>
     <servers />
   </component>
